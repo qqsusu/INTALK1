@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">italk</string>
+
+    <string name="profile_name">Yuan Heng</string>
+    <string name="profile_age">21</string>
+    <string name="profile_nickname">Nick</string>
+    <string name="profile_address">Kaohsiung, Taiwan</string>
+    <string name="profile_content">---以下是我的自介---</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="desc">desc</string>
+</resources>
