@@ -4,23 +4,35 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.util.MalformedJsonException;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Calendar;
 
 public class RegisterNextActivity extends AppCompatActivity {
@@ -32,7 +44,9 @@ public class RegisterNextActivity extends AppCompatActivity {
     int YEAR;
     private  int mYear,mMonth,mDay;
     private DatabaseReference myDB;
-
+    private static final int REQUEST_CODE = 1;
+    ImageView pic;
+    private StorageReference mRef;
 
 
     @Override
@@ -40,71 +54,19 @@ public class RegisterNextActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_next);
 
-//        final ImageButton btn_boy_1 = findViewById(R.id.btn_boy_1);
-//        final ImageButton btn_boy_2 = findViewById(R.id.btn_boy_2);
-//        final ImageButton btn_girl_1 = findViewById(R.id.btn_girl_1);
-//        final ImageButton btn_girl_2 = findViewById(R.id.btn_girl_2);
-//
-//        btn_boy_1.setSelected(false);
-//        btn_boy_1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                btn_boy_1.setSelected(true);
-//                btn_boy_2.setSelected(false);
-//                btn_girl_1.setSelected(false);
-//                btn_girl_2.setSelected(false);
-//                // Do something
-//            }
-//        });
-//
-//        btn_girl_1.setSelected(false);
-//        btn_girl_1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                btn_boy_1.setSelected(false);
-//                btn_boy_2.setSelected(false);
-//                btn_girl_1.setSelected(true);
-//                btn_girl_2.setSelected(false);
-//                // Do something
-//            }
-//        });
-//
-//        btn_boy_2.setSelected(false);
-//        btn_boy_2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                btn_boy_1.setSelected(false);
-//                btn_boy_2.setSelected(true);
-//                btn_girl_1.setSelected(false);
-//                btn_girl_2.setSelected(false);
-//                // Do something
-//            }
-//        });
-//
-//        btn_girl_2.setSelected(false);
-//        btn_girl_2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                btn_boy_1.setSelected(false);
-//                btn_boy_2.setSelected(false);
-//                btn_girl_1.setSelected(false);
-//                btn_girl_2.setSelected(true);
-//                // Do something
-//            }
-//        });
-
+        pic = findViewById(R.id.iv_pic);
         Button btn_choose_pic = findViewById(R.id.btn_choose_pic);
         btn_choose_pic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent pic_choose = new Intent(RegisterNextActivity.this, register_pic_choose.class);
-                startActivity(pic_choose);
+                startActivityForResult(pic_choose,REQUEST_CODE);
             }
         });
 
 
-        Intent getAccount = this.getIntent();
-        final String userAccountID = getAccount.getStringExtra("accountID");
+    Intent getAccount = this.getIntent();
+    final String userAccountID = getAccount.getStringExtra("accountID");
 
         //get element from XML
         //btn_register_back = findViewById(R.id.btn_register_back);
@@ -197,6 +159,54 @@ public class RegisterNextActivity extends AppCompatActivity {
         });
     }
 
+    public static Bitmap getBitmapFromUrl(String src){
+        try{
+            URL url = new URL(src);
+            HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+            conn.connect();
+
+            InputStream input = conn.getInputStream();
+            Bitmap mBitmap = BitmapFactory.decodeStream(input);
+            return mBitmap;
+        }catch (MalformedURLException e) {
+            e.printStackTrace();
+            return null;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case REQUEST_CODE:
+                String res = (data.getStringExtra("picMark"));
+                int resPic = Integer.parseInt(res);
+                //StorageReference mref = FirebaseStorage.getInstance().getReference().child("Sticker").child("student");
+                    System.out.println("照片位置:"+resPic);
+                    setImg();
+                /*if(resPic==0){
+                    Bitmap myBitmap = getBitmapFromUrl("gs://intalk-7b460.appspot.com/Sticker/student.png");
+                    pic.setImageBitmap(myBitmap);
+                    System.out.print("設定成功");
+                }*/
+                //else System.out.print("設定失敗");
+            break;
+            default:
+                System.out.println("跑出switch QQQ");
+                break;
+        }
+    }
+
+    final Bitmap myBitmap = getBitmapFromUrl("gs://intalk-7b460.appspot.com/Sticker/student.png");
+
+    public void setImg(){
+        //Bitmap myBitmap = getBitmapFromUrl("gs://intalk-7b460.appspot.com/Sticker/student.png");
+        pic.setImageBitmap(myBitmap);
+        System.out.println("設定成功");
+    }
 
     public void datePicker(View vv){
         //get current date

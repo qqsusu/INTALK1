@@ -118,8 +118,8 @@
         android:layout_height="70dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/round_rectangle"
-        app:layout_constraintTop_toBottomOf="@+id/text_choose_pic"
-        app:layout_constraintLeft_toLeftOf="@+id/register_next_guideline_vertical"/>
+        app:layout_constraintLeft_toLeftOf="@+id/register_next_guideline_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/text_choose_pic" />
 
     <Button
         android:id="@+id/btn_choose_pic"
