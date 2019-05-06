@@ -5,24 +5,28 @@
         <shape android:shape="rectangle"  >
             <solid android:color="@color/colorGrapeFruit" />
             <corners android:radius="8dip" />
+            <stroke android:width="3dip" android:color="#DDDDDD" />
         </shape>
     </item>
     <item android:state_selected="true">
         <shape android:shape="rectangle"  >
             <solid android:color="@color/colorGrapeFruit" />
             <corners android:radius="8dip" />
+            <stroke android:width="3dip" android:color="#DDDDDD" />
         </shape>
     </item>
     <item android:state_pressed="false">
         <shape android:shape="rectangle"  >
             <solid android:color="@color/colorWhite" />
             <corners android:radius="8dip" />
+            <stroke android:width="3dip" android:color="#DDDDDD" />
         </shape>
     </item>
     <item android:state_selected="false">
         <shape android:shape="rectangle"  >
             <solid android:color="@color/colorWhite" />
             <corners android:radius="8dip" />
+            <stroke android:width="3dip" android:color="#DDDDDD" />
         </shape>
     </item>
 

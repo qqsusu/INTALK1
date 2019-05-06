@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_login_register_background"
+    tools:context=".register_pic_choose">
+
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="選一個大頭貼吧!!"
+        android:textSize="20dp"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintLeft_toLeftOf="@+id/pic_choose_grid"
+        app:layout_constraintBottom_toTopOf="@+id/pic_choose_grid"
+        android:layout_marginBottom="5dp"/>
+
+
+    <GridView
+        android:id="@+id/pic_choose_grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="100dp"
+        android:padding="2dp"
+        android:background="@drawable/grid_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:numColumns="4"
+        >
+
+    </GridView>
+
+    <Button
+        android:id="@+id/btn_pic_choose_complete"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_rectangle_btn_login"
+        android:text="選擇完成"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/pic_choose_grid"
+        app:layout_constraintRight_toRightOf="@+id/pic_choose_grid"
+        />
+
+</android.support.constraint.ConstraintLayout>

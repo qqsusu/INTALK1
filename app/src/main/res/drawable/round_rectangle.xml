@@ -14,11 +14,11 @@
         <!--rectangle 長方形 可以畫出直角形，圓角形，弧形等-->
         <shape android:shape="rectangle">
             <!--填滿-->
-            <!--<solid android:color="#63FF63" />-->
+            <solid android:color="#FFFFFF" />
             <!--設定圓角-->
             <corners android:radius="15dip" />
             <!--邊框-->
-            <stroke android:width="3dip" android:color="#000"/>
+            <!--<stroke android:width="3dip" android:color="#000"/>-->
             <padding
                 android:bottom="10dp"
                 android:top="10dp"

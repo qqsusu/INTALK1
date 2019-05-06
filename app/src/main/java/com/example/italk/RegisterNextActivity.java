@@ -40,61 +40,67 @@ public class RegisterNextActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_next);
 
-        final ImageButton btn_boy_1 = findViewById(R.id.btn_boy_1);
-        final ImageButton btn_boy_2 = findViewById(R.id.btn_boy_2);
-        final ImageButton btn_girl_1 = findViewById(R.id.btn_girl_1);
-        final ImageButton btn_girl_2 = findViewById(R.id.btn_girl_2);
+//        final ImageButton btn_boy_1 = findViewById(R.id.btn_boy_1);
+//        final ImageButton btn_boy_2 = findViewById(R.id.btn_boy_2);
+//        final ImageButton btn_girl_1 = findViewById(R.id.btn_girl_1);
+//        final ImageButton btn_girl_2 = findViewById(R.id.btn_girl_2);
+//
+//        btn_boy_1.setSelected(false);
+//        btn_boy_1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                btn_boy_1.setSelected(true);
+//                btn_boy_2.setSelected(false);
+//                btn_girl_1.setSelected(false);
+//                btn_girl_2.setSelected(false);
+//                // Do something
+//            }
+//        });
+//
+//        btn_girl_1.setSelected(false);
+//        btn_girl_1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                btn_boy_1.setSelected(false);
+//                btn_boy_2.setSelected(false);
+//                btn_girl_1.setSelected(true);
+//                btn_girl_2.setSelected(false);
+//                // Do something
+//            }
+//        });
+//
+//        btn_boy_2.setSelected(false);
+//        btn_boy_2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                btn_boy_1.setSelected(false);
+//                btn_boy_2.setSelected(true);
+//                btn_girl_1.setSelected(false);
+//                btn_girl_2.setSelected(false);
+//                // Do something
+//            }
+//        });
+//
+//        btn_girl_2.setSelected(false);
+//        btn_girl_2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                btn_boy_1.setSelected(false);
+//                btn_boy_2.setSelected(false);
+//                btn_girl_1.setSelected(false);
+//                btn_girl_2.setSelected(true);
+//                // Do something
+//            }
+//        });
 
-        btn_boy_1.setSelected(false);
-        btn_boy_1.setOnClickListener(new View.OnClickListener() {
+        Button btn_choose_pic = findViewById(R.id.btn_choose_pic);
+        btn_choose_pic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_boy_1.setSelected(true);
-                btn_boy_2.setSelected(false);
-                btn_girl_1.setSelected(false);
-                btn_girl_2.setSelected(false);
-                // Do something
+                Intent pic_choose = new Intent(RegisterNextActivity.this, register_pic_choose.class);
+                startActivity(pic_choose);
             }
         });
-
-        btn_girl_1.setSelected(false);
-        btn_girl_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_boy_1.setSelected(false);
-                btn_boy_2.setSelected(false);
-                btn_girl_1.setSelected(true);
-                btn_girl_2.setSelected(false);
-                // Do something
-            }
-        });
-
-        btn_boy_2.setSelected(false);
-        btn_boy_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_boy_1.setSelected(false);
-                btn_boy_2.setSelected(true);
-                btn_girl_1.setSelected(false);
-                btn_girl_2.setSelected(false);
-                // Do something
-            }
-        });
-
-        btn_girl_2.setSelected(false);
-        btn_girl_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_boy_1.setSelected(false);
-                btn_boy_2.setSelected(false);
-                btn_girl_1.setSelected(false);
-                btn_girl_2.setSelected(true);
-                // Do something
-            }
-        });
-
-
-
 
 
         Intent getAccount = this.getIntent();
