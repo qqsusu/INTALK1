@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -21,6 +22,7 @@ public class Profile_change extends AppCompatActivity {
 
     EditText nicknameChange,introChange;
     Button changeConfirm,changeCancel;
+    ImageView userPicture;
     private DatabaseReference getdata;
     private DatabaseReference changData;
     @Override
@@ -35,6 +37,7 @@ public class Profile_change extends AppCompatActivity {
         introChange = findViewById(R.id.change_editext_introduction);
         changeConfirm = findViewById(R.id.change_btn_confirm);
         changeCancel = findViewById(R.id.btn_discard);
+        userPicture = findViewById(R.id.iv_pic);
 
         final Userdata userData = new Userdata();
         getdata = FirebaseDatabase.getInstance().getReference("userData").child(userID);
@@ -45,8 +48,22 @@ public class Profile_change extends AppCompatActivity {
                     userData.AccountID = userID;
                     userData.nickname = pdataSnapshot.child("nickname").getValue().toString();
                     userData.introduction = pdataSnapshot.child("introduction").getValue().toString();
+                    userData.picPos = Integer.parseInt(pdataSnapshot.child("picPos").getValue().toString());
                     nicknameChange.setText(userData.nickname);
                     introChange.setText(userData.introduction);
+                    switch (userData.picPos){
+                        case 0:
+                            userPicture.setImageResource(R.drawable.student);
+                            break;
+                        case 1:
+                            userPicture.setImageResource(R.drawable.bartender);
+                            break;
+
+                        //...add others
+
+                        default:
+                            break;
+                    }
                 }
                 else {
                     System.out.println("GG");

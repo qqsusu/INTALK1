@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -20,6 +21,7 @@ public class ProfileActivity extends AppCompatActivity {
     private DatabaseReference getData;
     TextView username,userage,userbday,userintro;
     Button profileChange,back2Primary;
+    ImageView userPic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
         userintro = findViewById(R.id.profile_content);
         profileChange = findViewById(R.id.profile_change_btn);
         back2Primary = findViewById(R.id.btn_profileBack2primary);
+        userPic = findViewById(R.id.profile_picture);
 
         final Userdata uData = new Userdata();
 
@@ -47,6 +50,7 @@ public class ProfileActivity extends AppCompatActivity {
                     uData.age = Integer.parseInt(dataSnapshot.child("age").getValue().toString());
                     uData.introduction = dataSnapshot.child("introduction").getValue().toString();
                     uData.birthday = dataSnapshot.child("birthday").getValue().toString();
+                    uData.picPos = Integer.parseInt(dataSnapshot.child("picPos").getValue().toString());
                     username.setText(uData.nickname);
                     userage.setText(Integer.toString(uData.age));
                     userbday.setText(uData.birthday);
@@ -55,6 +59,19 @@ public class ProfileActivity extends AppCompatActivity {
                     System.out.println("暱稱:"+uData.nickname);
                     System.out.println("自我介試:"+uData.introduction);
                     System.out.println("生日:"+uData.birthday);*/
+                    switch (uData.picPos){
+                        case 0:
+                            userPic.setImageResource(R.drawable.student);
+                            break;
+                        case 1:
+                            userPic.setImageResource(R.drawable.bartender);
+                            break;
+
+                            //...add others
+
+                         default:
+                             break;
+                    }
                 }
                 else{
                     System.out.println("使用者帳號:"+userID);
@@ -76,9 +93,10 @@ public class ProfileActivity extends AppCompatActivity {
         back2Primary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent back2Primary = new Intent(ProfileActivity.this,PrimaryActivity.class);
-                back2Primary.putExtra("userID",userID);
-                startActivity(back2Primary);
+                //Intent back2Primary = new Intent(ProfileActivity.this,PrimaryActivity.class);
+                //back2Primary.putExtra("userID",userID);
+                //startActivity(back2Primary);
+                finish();
             }
         });
     }

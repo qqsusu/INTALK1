@@ -44,6 +44,9 @@ public class register_pic_choose extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 picMark[0] = position;
+                if(position==0){
+
+                }
             }
         });
 

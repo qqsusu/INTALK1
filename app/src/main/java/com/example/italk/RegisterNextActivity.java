@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.util.MalformedJsonException;
 import android.view.View;
 import android.widget.Button;
@@ -47,6 +49,7 @@ public class RegisterNextActivity extends AppCompatActivity {
     private static final int REQUEST_CODE = 1;
     ImageView pic;
     private StorageReference mRef;
+    int picPos = 0;
 
 
     @Override
@@ -64,10 +67,8 @@ public class RegisterNextActivity extends AppCompatActivity {
             }
         });
 
-
     Intent getAccount = this.getIntent();
     final String userAccountID = getAccount.getStringExtra("accountID");
-
         //get element from XML
         //btn_register_back = findViewById(R.id.btn_register_back);
         showAccount = findViewById(R.id.text_show_account);
@@ -82,15 +83,6 @@ public class RegisterNextActivity extends AppCompatActivity {
         //set AccountID text
         showAccount.setText(showAccount.getText().toString()+userAccountID);
 
-        //back intent
-        /*
-        btn_register_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent BackIntent = new Intent(RegisterNextActivity.this, RegisterActivity.class);
-                startActivity(BackIntent);
-            }
-        });*/
         btn_confirm.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -138,7 +130,7 @@ public class RegisterNextActivity extends AppCompatActivity {
                             }).show();
                 }
                 else{
-                    Userdata userdata = new Userdata(userAccountID,nname,bday,intro,age,gen);
+                    Userdata userdata = new Userdata(userAccountID,nname,bday,intro,age,gen,picPos);
                     myDB = FirebaseDatabase.getInstance().getReferenceFromUrl("https://intalk-7b460.firebaseio.com/");
                     myDB.child("userData").child(userAccountID).setValue(userdata);
                     new AlertDialog.Builder(RegisterNextActivity.this)
@@ -159,7 +151,7 @@ public class RegisterNextActivity extends AppCompatActivity {
         });
     }
 
-    public static Bitmap getBitmapFromUrl(String src){
+    /*public static Bitmap getBitmapFromUrl(String src){
         try{
             URL url = new URL(src);
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
@@ -175,7 +167,7 @@ public class RegisterNextActivity extends AppCompatActivity {
             e.printStackTrace();
             return null;
         }
-    }
+    }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -183,29 +175,30 @@ public class RegisterNextActivity extends AppCompatActivity {
         switch (requestCode){
             case REQUEST_CODE:
                 String res = (data.getStringExtra("picMark"));
-                int resPic = Integer.parseInt(res);
+                int resPic = Integer.parseInt(res);picPos = resPic;
                 //StorageReference mref = FirebaseStorage.getInstance().getReference().child("Sticker").child("student");
                     System.out.println("照片位置:"+resPic);
-                    setImg();
-                /*if(resPic==0){
-                    Bitmap myBitmap = getBitmapFromUrl("gs://intalk-7b460.appspot.com/Sticker/student.png");
-                    pic.setImageBitmap(myBitmap);
+                    switch (resPic){
+                        case 0:
+                           pic.setImageResource(R.drawable.student);
+                           break;
+                        case 1:
+                            pic.setImageResource(R.drawable.bartender);
+                            break;
+                    }
+                    //new DownloadImageTask(pic).execute("https://i.imgur.com/OgkFKeU.jpg ");
+
+                if(resPic==0){
+                    //Bitmap myBitmap = getBitmapFromUrl("gs://intalk-7b460.appspot.com/Sticker/student.png");
+                    //pic.setImageBitmap(myBitmap);
                     System.out.print("設定成功");
-                }*/
+                }
                 //else System.out.print("設定失敗");
             break;
             default:
                 System.out.println("跑出switch QQQ");
                 break;
         }
-    }
-
-    final Bitmap myBitmap = getBitmapFromUrl("gs://intalk-7b460.appspot.com/Sticker/student.png");
-
-    public void setImg(){
-        //Bitmap myBitmap = getBitmapFromUrl("gs://intalk-7b460.appspot.com/Sticker/student.png");
-        pic.setImageBitmap(myBitmap);
-        System.out.println("設定成功");
     }
 
     public void datePicker(View vv){
@@ -226,4 +219,29 @@ public class RegisterNextActivity extends AppCompatActivity {
         },mYear,mMonth,mDay);
         datePickerDialog.show();
     }//end of onclick
+}
+
+class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+    ImageView bmImage;
+
+    public DownloadImageTask(ImageView bmImage) {
+        this.bmImage = bmImage;
+    }
+
+    protected Bitmap doInBackground(String... urls) {
+        String urldisplay = urls[0];
+        Bitmap mIcon11 = null;
+        try {
+            InputStream in = new java.net.URL(urldisplay).openStream();
+            mIcon11 = BitmapFactory.decodeStream(in);
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
+            e.printStackTrace();
+        }
+        return mIcon11;
+    }
+
+    protected void onPostExecute(Bitmap result) {
+        bmImage.setImageBitmap(result);
+    }
 }
