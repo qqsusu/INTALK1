@@ -42,7 +42,7 @@ public class GridAdapter extends BaseAdapter {
         if(convertView == null){
             view = new View(context);
             view = layoutInflater.inflate(R.layout.single_item, null);
-            ImageView imageView = (ImageView) view.findViewById(R.id.pic);
+            ImageView imageView =view.findViewById(R.id.pic);
             imageView.setImageResource(images[position]);
         }
 

@@ -146,7 +146,6 @@ public class RegisterNextActivity extends AppCompatActivity {
                                 }
                             }).show();
                 }
-                //declare object
             }
         });
     }
@@ -224,12 +223,8 @@ public class RegisterNextActivity extends AppCompatActivity {
                         case 14:
                             pic.setImageResource(R.drawable.dj);
                             break;
-
-
-
                     }
                     //new DownloadImageTask(pic).execute("https://i.imgur.com/OgkFKeU.jpg ");
-
                 if(resPic==0){
                     //Bitmap myBitmap = getBitmapFromUrl("gs://intalk-7b460.appspot.com/Sticker/student.png");
                     //pic.setImageBitmap(myBitmap);
@@ -242,7 +237,6 @@ public class RegisterNextActivity extends AppCompatActivity {
                 break;
         }
     }
-
     public void datePicker(View vv){
         //get current date
         final Calendar myCalendar = Calendar.getInstance();
