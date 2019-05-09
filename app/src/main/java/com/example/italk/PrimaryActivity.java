@@ -61,8 +61,9 @@ public class PrimaryActivity extends AppCompatActivity {
                         .setPositiveButton("確認" ,new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent toMain = new Intent(PrimaryActivity.this,MainActivity.class);
-                                startActivity(toMain);
+                                //Intent toMain = new Intent(PrimaryActivity.this,MainActivity.class);
+                                //startActivity(toMain);
+                                finish();
                             }
                         })
                         .setNegativeButton("不要好了", new DialogInterface.OnClickListener() {

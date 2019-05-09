@@ -49,32 +49,25 @@
         android:id="@+id/profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/profile_name"
-        android:textSize="30sp"
         android:textColor="@color/colorBlack"
-        app:layout_constraintTop_toBottomOf="@+id/profile_picture"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="206dp"
+        tools:layout_editor_absoluteY="246dp" />
 
     <TextView
         android:id="@+id/profile_age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/profile_age"
-        android:textSize="30sp"
         android:textColor="@color/colorBlack"
-        app:layout_constraintTop_toBottomOf="@+id/profile_name"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="206dp"
+        tools:layout_editor_absoluteY="299dp" />
 
     <TextView
         android:id="@+id/profile_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="@string/profile_address"
         android:textSize="25sp"
         app:layout_constraintTop_toBottomOf="@+id/profile_age"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -87,7 +80,6 @@
         android:layout_marginLeft="120dp"
         android:layout_marginTop="32dp"
         android:layout_marginRight="120dp"
-        android:text="@string/profile_content"
         android:textColor="#0088A8"
         android:textSize="20sp"
         android:gravity="center_horizontal"

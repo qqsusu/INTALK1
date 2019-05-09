@@ -30,7 +30,6 @@
         android:hint="打字啦"
         android:inputType="textPersonName"
         app:layout_constraintLeft_toLeftOf="@id/guideline_left"
-        app:layout_constraintRight_toLeftOf="@+id/send_btn"
         app:layout_constraintTop_toBottomOf="@+id/chatroom_scrollView" />
     <Button
         android:id="@+id/send_btn"
