@@ -185,6 +185,48 @@ public class RegisterNextActivity extends AppCompatActivity {
                         case 1:
                             pic.setImageResource(R.drawable.bartender);
                             break;
+                        case 2:
+                            pic.setImageResource(R.drawable.detective);
+                            break;
+                        case 3:
+                            pic.setImageResource(R.drawable.chef);
+                            break;
+                        case 4:
+                            pic.setImageResource(R.drawable.electrician);
+                            break;
+                        case 5:
+                            pic.setImageResource(R.drawable.engineer);
+                            break;
+                        case 6:
+                            pic.setImageResource(R.drawable.farmer);
+                            break;
+                        case 7:
+                            pic.setImageResource(R.drawable.joker);
+                            break;
+                        case 8:
+                            pic.setImageResource(R.drawable.athlete);
+                            break;
+                        case 9:
+                            pic.setImageResource(R.drawable.nurse);
+                            break;
+                        case 10:
+                            pic.setImageResource(R.drawable.pilot);
+                            break;
+                        case 11:
+                            pic.setImageResource(R.drawable.avatar);
+                            break;
+                        case 12:
+                            pic.setImageResource(R.drawable.police);
+                            break;
+                        case 13:
+                            pic.setImageResource(R.drawable.soldier);
+                            break;
+                        case 14:
+                            pic.setImageResource(R.drawable.dj);
+                            break;
+
+
+
                     }
                     //new DownloadImageTask(pic).execute("https://i.imgur.com/OgkFKeU.jpg ");
 

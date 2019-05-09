@@ -66,7 +66,45 @@ public class ProfileActivity extends AppCompatActivity {
                         case 1:
                             userPic.setImageResource(R.drawable.bartender);
                             break;
-
+                        case 2:
+                            userPic.setImageResource(R.drawable.detective);
+                            break;
+                        case 3:
+                            userPic.setImageResource(R.drawable.chef);
+                            break;
+                        case 4:
+                            userPic.setImageResource(R.drawable.electrician);
+                            break;
+                        case 5:
+                            userPic.setImageResource(R.drawable.student);
+                            break;
+                        case 6:
+                            userPic.setImageResource(R.drawable.farmer);
+                            break;
+                        case 7:
+                            userPic.setImageResource(R.drawable.joker);
+                            break;
+                        case 8:
+                            userPic.setImageResource(R.drawable.athlete);
+                            break;
+                        case 9:
+                            userPic.setImageResource(R.drawable.nurse);
+                            break;
+                        case 10:
+                            userPic.setImageResource(R.drawable.pilot);
+                            break;
+                        case 11:
+                            userPic.setImageResource(R.drawable.avatar);
+                            break;
+                        case 12:
+                            userPic.setImageResource(R.drawable.police);
+                            break;
+                        case 13:
+                            userPic.setImageResource(R.drawable.soldier);
+                            break;
+                        case 14:
+                            userPic.setImageResource(R.drawable.dj);
+                            break;
                             //...add others
 
                          default:

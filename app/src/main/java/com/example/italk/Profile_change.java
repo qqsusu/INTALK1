@@ -58,7 +58,45 @@ public class Profile_change extends AppCompatActivity {
                         case 1:
                             userPicture.setImageResource(R.drawable.bartender);
                             break;
-
+                        case 2:
+                            userPicture.setImageResource(R.drawable.detective);
+                            break;
+                        case 3:
+                            userPicture.setImageResource(R.drawable.chef);
+                            break;
+                        case 4:
+                            userPicture.setImageResource(R.drawable.electrician);
+                            break;
+                        case 5:
+                            userPicture.setImageResource(R.drawable.student);
+                            break;
+                        case 6:
+                            userPicture.setImageResource(R.drawable.farmer);
+                            break;
+                        case 7:
+                            userPicture.setImageResource(R.drawable.joker);
+                            break;
+                        case 8:
+                            userPicture.setImageResource(R.drawable.athlete);
+                            break;
+                        case 9:
+                            userPicture.setImageResource(R.drawable.nurse);
+                            break;
+                        case 10:
+                            userPicture.setImageResource(R.drawable.pilot);
+                            break;
+                        case 11:
+                            userPicture.setImageResource(R.drawable.avatar);
+                            break;
+                        case 12:
+                            userPicture.setImageResource(R.drawable.police);
+                            break;
+                        case 13:
+                            userPicture.setImageResource(R.drawable.soldier);
+                            break;
+                        case 14:
+                            userPicture.setImageResource(R.drawable.dj);
+                            break;
                         //...add others
 
                         default:
