@@ -37,7 +37,7 @@ public class HobbyActivity extends AppCompatActivity {
         Button social_btn = findViewById(R.id.social_btn);
         Button joke_btn = findViewById(R.id.joke_btn);
         Button pet_btn = findViewById(R.id.pet_btn);
-        Button other_btn = findViewById(R.id.other_btn);
+        Button music_btn = findViewById(R.id.music_btn);
 
         feeling_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,7 +121,7 @@ public class HobbyActivity extends AppCompatActivity {
                 startActivity(ToPetIntent);
             }
         });
-        other_btn.setOnClickListener(new View.OnClickListener() {
+        music_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String roomID = "other";
