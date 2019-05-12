@@ -23,9 +23,10 @@ public class HobbyActivity extends AppCompatActivity {
         backToPrimary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent back2Primary = new Intent(HobbyActivity.this,PrimaryActivity.class);
-                back2Primary.putExtra("userID",userID);
-                startActivity(back2Primary);
+                //Intent back2Primary = new Intent(HobbyActivity.this,PrimaryActivity.class);
+                //back2Primary.putExtra("userID",userID);
+                //startActivity(back2Primary);
+                finish();
             }
         });
         Button feeling_btn = findViewById(R.id.feeling_btn);

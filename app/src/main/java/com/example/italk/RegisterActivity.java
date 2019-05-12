@@ -80,6 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
                             System.out.println("帳號不存在2222");
                             //確認帳號長度，密碼符合
                             if(checkAccountLen(uid)&&checkPasswdOK(upasd,cupasd)){
+
                                 new AlertDialog.Builder(RegisterActivity.this)
                                         .setTitle("喔喔喔喔喔喔")
                                         .setIcon(R.mipmap.ic_launcher)
@@ -136,9 +137,11 @@ public class RegisterActivity extends AppCompatActivity {
         //else if(!checkAccountExist(userID)){return false;}
         //else if(!checkPasswdOK(userPasswd,confirm_passwd)){return false;}
         //submit to database
+        Userdata udata = new Userdata(userID);
         User user = new User(userID,userPasswd);
         mDatabase = FirebaseDatabase.getInstance().getReferenceFromUrl("https://intalk-7b460.firebaseio.com/");//init database reference
         mDatabase.child("userAccount").child(userID).setValue(user);
+        mDatabase.child("userData").child(userID).setValue(udata);
         Toast.makeText(this,"帳號新增成功，接下來請填寫一些基本資料吧 !",Toast.LENGTH_SHORT).show();
         return true;
     }

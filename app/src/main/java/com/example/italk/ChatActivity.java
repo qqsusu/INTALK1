@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -28,6 +29,7 @@ public class ChatActivity extends AppCompatActivity {
     private DatabaseReference GroupChatRef;
     private String temp_key;
     private String room;
+    private ScrollView SW;
 
 
     @Override
@@ -40,6 +42,7 @@ public class ChatActivity extends AppCompatActivity {
         Intent getID = this.getIntent();
         final String userID = getID.getStringExtra("userID");
         room = roomID;
+        SW = findViewById(R.id.chatroom_scrollView);
 
 
         GroupChatRef = FirebaseDatabase.getInstance().getReference().child("GroupChat");
@@ -47,7 +50,7 @@ public class ChatActivity extends AppCompatActivity {
         msg = findViewById(R.id.msg);
         input_text = findViewById(R.id.input_text);
 
-
+        SW.scrollTo(0,99999);
 
         btn_send_msg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,11 +58,14 @@ public class ChatActivity extends AppCompatActivity {
                 temp_key = GroupChatRef.child(roomID).push().getKey();
                 DatabaseReference message_root = GroupChatRef.child(roomID).child(temp_key);
                 Map<String,Object> map = new HashMap<>();
-                map.put("name",userID);
-                map.put("msg",msg.getText().toString());
-
-                message_root.updateChildren(map);
-                msg.setText("");
+                if(!msg.getText().toString().equals("")){
+                    map.put("name",userID);
+                    map.put("msg",msg.getText().toString());
+                    message_root.updateChildren(map);
+                    msg.setText("");
+                    //SW.requestFocus(View.FOCUS_UP);
+                    SW.scrollTo(0,99999);
+                }
             }
         });
     }

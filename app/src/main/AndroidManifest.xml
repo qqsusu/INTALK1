@@ -21,7 +21,8 @@
         </activity>
         <activity
             android:name=".FriendListActivity"
-            android:theme="@style/AppTheme.friend">
+            android:theme="@style/AppTheme.friend"
+            android:parentActivityName=".PrimaryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>

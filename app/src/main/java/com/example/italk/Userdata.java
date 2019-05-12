@@ -10,6 +10,12 @@ class Userdata {
     public int picPos;
 
     public Userdata(){};
+    public Userdata(String userID){
+        AccountID = userID;
+        nickname = birthday = introduction = "";
+        gender = true;
+        age = picPos = 0;
+    }
     public Userdata(String ID,String nname,String bday,String intro,int age,boolean gen){
         AccountID = ID;
         nickname = nname;
