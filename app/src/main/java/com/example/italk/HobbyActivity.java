@@ -43,7 +43,7 @@ public class HobbyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String roomID ="feeling";
-                Intent ToFeelingIntent = new Intent(HobbyActivity.this, ChatActivity.class);
+                Intent ToFeelingIntent = new Intent(HobbyActivity.this, Chat.class);
                 ToFeelingIntent.putExtra("userID",userID);
                 ToFeelingIntent.putExtra("roomID",roomID);
                 startActivity(ToFeelingIntent);
@@ -54,7 +54,7 @@ public class HobbyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String roomID = "sport";
-                Intent ToSportIntent = new Intent(HobbyActivity.this, ChatActivity.class);
+                Intent ToSportIntent = new Intent(HobbyActivity.this, Chat.class);
                 ToSportIntent.putExtra("userID",userID);
                 ToSportIntent.putExtra("roomID",roomID);
                 startActivity(ToSportIntent);
@@ -65,7 +65,7 @@ public class HobbyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String roomID = "game";
-                Intent ToGameIntent = new Intent (HobbyActivity.this, ChatActivity.class);
+                Intent ToGameIntent = new Intent (HobbyActivity.this, Chat.class);
                 ToGameIntent.putExtra("userID",userID);
                 ToGameIntent.putExtra("roomID",roomID);
                 startActivity(ToGameIntent);
@@ -75,7 +75,7 @@ public class HobbyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String roomID = "food";
-                Intent ToFoodIntent = new Intent(HobbyActivity.this, ChatActivity.class);
+                Intent ToFoodIntent = new Intent(HobbyActivity.this, Chat.class);
                 ToFoodIntent.putExtra("userID",userID);
                 ToFoodIntent.putExtra("roomID",roomID);
                 startActivity(ToFoodIntent);
@@ -85,7 +85,7 @@ public class HobbyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String roomID = "wearing";
-                Intent ToWearingIntent = new Intent(HobbyActivity.this, ChatActivity.class);
+                Intent ToWearingIntent = new Intent(HobbyActivity.this, Chat.class);
                 ToWearingIntent.putExtra("userID",userID);
                 ToWearingIntent.putExtra("roomID",roomID);
                 startActivity(ToWearingIntent);
@@ -95,7 +95,7 @@ public class HobbyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String roomID = "social";
-                Intent ToSocialIntent = new Intent(HobbyActivity.this, ChatActivity.class);
+                Intent ToSocialIntent = new Intent(HobbyActivity.this, Chat.class);
                 ToSocialIntent.putExtra("userID",userID);
                 ToSocialIntent.putExtra("roomID",roomID);
                 startActivity(ToSocialIntent);
@@ -105,7 +105,7 @@ public class HobbyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String roomID = "joke";
-                Intent ToJokeIntent = new Intent(HobbyActivity.this, ChatActivity.class);
+                Intent ToJokeIntent = new Intent(HobbyActivity.this, Chat.class);
                 ToJokeIntent.putExtra("userID",userID);
                 ToJokeIntent.putExtra("roomID",roomID);
                 startActivity(ToJokeIntent);
@@ -115,7 +115,7 @@ public class HobbyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String roomID = "pet";
-                Intent ToPetIntent = new Intent(HobbyActivity.this, ChatActivity.class);
+                Intent ToPetIntent = new Intent(HobbyActivity.this, Chat.class);
                 ToPetIntent.putExtra("userID",userID);
                 ToPetIntent.putExtra("roomID",roomID);
                 startActivity(ToPetIntent);
@@ -124,8 +124,8 @@ public class HobbyActivity extends AppCompatActivity {
         music_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String roomID = "other";
-                Intent ToOtherIntent = new Intent(HobbyActivity.this, ChatActivity.class);
+                String roomID = "music";
+                Intent ToOtherIntent = new Intent(HobbyActivity.this, Chat.class);
                 ToOtherIntent.putExtra("userID",userID);
                 ToOtherIntent.putExtra("roomID",roomID);
                 startActivity(ToOtherIntent);

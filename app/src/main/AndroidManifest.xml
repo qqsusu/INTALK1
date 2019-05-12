@@ -13,6 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".register_pic_choose"></activity>
         <activity android:name=".ChatActivity" />
+        <activity android:name=".Chat"/>
         <activity android:name=".Profile_change" />
         <activity android:name=".HobbyActivity">
             <intent-filter>
